@@ -1,50 +1,22 @@
 # Enhanced Timer
 
-A MelonLoader mod for **Neon Boost** that adds a speedrun.com RTA timer alongside the game's IGT.
+A quick and dirty mod that adds an RTA timer in-game as well as on the level end screen.
 
-## Features
+Tentatively approved for use in IL speedrunning.
 
-### RTA Timer
-- Displays a real-time RTA timer below the in-game IGT timer
-- Starts on first movement input (WASD) or rocket fire (Fire1)
-- Stops on the frame the results screen appears
-- Styled to match the game's existing timer (same font, color, outline)
+## Installation and Usage
 
-### IGT Enhancement
-- Shows milliseconds when under 10 seconds, deciseconds when 10+
-- Adapts precision to the current time
+1. Download [MelonLoader](https://github.com/LavaGang/MelonLoader/releases/tag/v0.7.2) and install it to your 'Neon Boost.exe'.
+2. Run the game once. This will create the required folders. You should see a splash screen and a terminal if the modloader was installed correctly.
+3. Optionally, download [Melon Preferences Manager](https://github.com/Bluscream/MelonPreferencesManager/releases).
+3b. Download the latest version of [UniverseLib](https://github.com/sinai-dev/UniverseLib/releases).
+4. Download the ExtendedTimer.dll from [the releases page](https://github.com/Hyonk-Tea/NeonBoostEnhancedTimer/releases)
+5. Extract all of the downloaded mods from their .zip files, and deposit them into your Neon Boost/Mods/ folder.
+6. Launch the game!
 
-### Best RTA Tracking
-- Saves best RTA times per level to `rta_best_times.json`
-- Updates automatically when you set a new best
+As of release v0.1.0-beta, you can tell that it's working if the new timer appears right below the old one.
 
-### End Screen
-- Displays RTA time on the results screen (configurable)
-- Shows best RTA time for the level
+### Additional Notes
 
-### Level Select
-- Shows both IGT and RTA times in the level select menu
-- Format: `12.3  RTA: 0:34.567`
+Once you've confirmed your MelonLoader install is functional, make sure to add `--melonloader.hideconsole` to your game launch properties (Neon Boost in your Steam library -> properties -> launch options at the bottom of that window). This will help your game launch faster.
 
-## Settings (MelonLoader Preferences)
-
-| Setting | Default | Description |
-|---------|---------|-------------|
-| RTA on End Screen | true | Show RTA instead of IGT on the results screen |
-| RTA in Level Select | true | Show RTA times in the level select menu |
-| Show IGT Labels | true | Add "IGT:" prefix when showing IGT times |
-
-## Installation
-
-1. Install [MelonLoader](https://github.com/LavaGang/MelonLoader) for Neon Boost
-2. Place `EnhancedTimer.dll` in the `Mods/` folder
-3. Launch the game
-
-## Building
-
-Requires .NET Framework 3.5 compiler and references from the game's `Neon Boost_Data\Managed/` and `MelonLoader/net35/` directories.
-
-## RTA Rules
-
-- **Start**: First frame of movement input (Horizontal/Vertical axis) OR firing the rocket (Fire1). Crouch/slide is excluded.
-- **Stop**: The frame the results screen appears (GameOver Canvas becomes active).
