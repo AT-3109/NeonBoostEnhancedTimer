@@ -104,7 +104,7 @@ namespace EnhancedTimer
                     }
                     else
                     {
-                        _accumulated += Time.deltaTime;
+                        _accumulated += Time.unscaledDeltaTime;
                         CurrentRTA = _accumulated;
                         UpdateText(_accumulated);
                     }
