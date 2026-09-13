@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using MelonLoader;
+using static MelonLoader.MelonLogger;
 
 namespace EnhancedTimer
 {
@@ -64,11 +65,24 @@ namespace EnhancedTimer
 
         public static void SetIfBetter(int level, float time)
         {
+            if (RTAState.alreadySet)
+            {
+                return;
+            }
+            if (!_times.ContainsKey(level))
+            {
+                RTAState.priorBest = 0f;
+            }
+            else
+            {
+                RTAState.priorBest = _times[level];
+            }
             if (!_times.ContainsKey(level) || time < _times[level])
             {
                 _times[level] = time;
                 Save();
             }
+            RTAState.alreadySet = true;
         }
 
         public static string Format(float seconds)
