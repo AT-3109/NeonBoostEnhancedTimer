@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using HarmonyLib;
 using MelonLoader;
 using UnityEngine;
@@ -71,6 +72,9 @@ namespace EnhancedTimer
     {
         public static bool ShowRTA;
         public static double FinalSeconds;
+        public static float priorBest;
+        public static bool hadPriorBest;
+        public static bool alreadySet;
     }
 
     [HarmonyPatch(typeof(GameManager), "StartGameFinish")]
@@ -86,6 +90,15 @@ namespace EnhancedTimer
         }
     }
 
+    [HarmonyPatch(typeof(GameManager), "StartGame")]
+    public class GameManagerStartGamePatch
+    {
+        public static void Postfix(GameManager __instance)
+        {
+            RTAState.alreadySet = false;
+        }
+    }
+
     [HarmonyPatch(typeof(GameOverManager), "Update")]
     public class GameOverManagerUpdatePatch
     {
@@ -94,20 +107,49 @@ namespace EnhancedTimer
             bool useRTA = RTATimerMod.RTAEndScreen.Value && RTAState.ShowRTA && RTAState.FinalSeconds > 0.0;
             bool useIGT = RTATimerMod.ShowIGTLabels.Value;
 
+            // universal pb time
+            float currentTime = 0;
+            float priorBest = RTAState.priorBest;
+
             if (useRTA)
             {
                 __instance.FinalScore.text = "RTA: " + RTABestTimes.Format((float)RTAState.FinalSeconds);
 
-                float bestRTA;
-                if (RTABestTimes.TryGet(__instance.gm.currentLevel, out bestRTA))
-                    __instance.BestScore.text = "Best RTA: " + RTABestTimes.Format(bestRTA);
+                if (RTAState.priorBest != 0f)
+                {
+                    __instance.BestScore.text = "Best RTA: " + RTABestTimes.Format(RTAState.priorBest);
+                }
                 else if (useIGT)
+                {
                     __instance.BestScore.text = "Best IGT: " + __instance.gm.BestTime;
+                }
+                else
+                {
+                    __instance.BestScore.text = "No prior best";
+                }
+                currentTime = (float)RTAState.FinalSeconds;
             }
             else if (useIGT)
             {
                 __instance.FinalScore.text = "IGT: " + string.Format("{0:0.0}", __instance.gm.LastTime);
                 __instance.BestScore.text = "Best IGT: " + __instance.gm.BestTime;
+                priorBest = __instance.gm.BestTime;
+                currentTime = __instance.gm.LastTime;
+            }
+
+            // colorize based on if new best
+            __instance.BestScore.color = Color.white;
+            if (currentTime < priorBest || priorBest == 0f)
+            {
+                __instance.FinalScore.color = Color.green;
+            }
+            else if (currentTime > priorBest)
+            {
+                __instance.FinalScore.color = Color.red;
+            }
+            else
+            {
+                __instance.FinalScore.color = Color.yellow;
             }
         }
     }
