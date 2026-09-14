@@ -14,9 +14,20 @@ Tentatively approved for use in IL speedrunning.
 5. Extract all of the downloaded mods from their .zip files, and deposit them into your Neon Boost/Mods/ folder.
 6. Launch the game!
 
+## Building
+### Requirements
+- Visual Studio 2026 w/ .Net Desktop Development
+- .NET 4.7.2
+### Process
+1. Create a new sub-folder in the project directory called `lib`.
+2. Copy all Unity `.dll` files and `Assembly-CSharp.dll` from `<gamedir>/NeonBoost_Data` into `lib/`.
+3. Copy `<gamedir>\MelonLoader\net472\MelonLoader.dll` into `lib/`.
+4. Open `NeonBoostEnhancedTimer.slnx` with VS 2026.
+5. Build the project as release.
+
 As of release v0.1.0-beta, you can tell that it's working if the new timer appears right below the old one.
 
-### Additional Notes
+## Additional Notes
 
 Once you've confirmed your MelonLoader install is functional, make sure to add `--melonloader.hideconsole` to your game launch properties (Neon Boost in your Steam library -> properties -> launch options at the bottom of that window). This will help your game launch faster.
 
