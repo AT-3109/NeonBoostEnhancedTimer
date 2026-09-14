@@ -21,7 +21,7 @@ Tentatively approved for use in IL speedrunning.
 ### Process
 1. Create a new sub-folder in the project directory called `lib`.
 2. Copy all Unity `.dll` files and `Assembly-CSharp.dll` from `<gamedir>/NeonBoost_Data` into `lib/`.
-3. Copy `<gamedir>\MelonLoader\net472\MelonLoader.dll` into `lib/`.
+3. Copy `0Harmony.dll` & `MelonLoader.dll` from `<gamedir>\MelonLoader\net472\` into `lib/`.
 4. Open `NeonBoostEnhancedTimer.slnx` with VS 2026.
 5. Build the project as release.
 
