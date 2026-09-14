@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7DE5F987-88AD-474A-ACAF-051A6E052C1B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NeonBoostEnhancedTimer</RootNamespace>
+    <AssemblyName>NeonBoostEnhancedTimer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+    </Reference>
+    <Reference Include="MelonLoader">
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.Analytics.DataPrivacy">
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Lightweight.Runtime">
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+    </Reference>
+    <Reference Include="UnityEngine">
+    </Reference>
+    <Reference Include="UnityEngine.AccessibilityModule">
+    </Reference>
+    <Reference Include="UnityEngine.AIModule">
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+    </Reference>
+    <Reference Include="UnityEngine.ARModule">
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+    </Reference>
+    <Reference Include="UnityEngine.BaselibModule">
+    </Reference>
+    <Reference Include="UnityEngine.ClothModule">
+    </Reference>
+    <Reference Include="UnityEngine.ClusterInputModule">
+    </Reference>
+    <Reference Include="UnityEngine.ClusterRendererModule">
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+    </Reference>
+    <Reference Include="UnityEngine.CrashReportingModule">
+    </Reference>
+    <Reference Include="UnityEngine.DirectorModule">
+    </Reference>
+    <Reference Include="UnityEngine.FileSystemHttpModule">
+    </Reference>
+    <Reference Include="UnityEngine.GameCenterModule">
+    </Reference>
+    <Reference Include="UnityEngine.GridModule">
+    </Reference>
+    <Reference Include="UnityEngine.HotReloadModule">
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+    </Reference>
+    <Reference Include="UnityEngine.LocalizationModule">
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+    </Reference>
+    <Reference Include="UnityEngine.PerformanceReportingModule">
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+    </Reference>
+    <Reference Include="UnityEngine.ProfilerModule">
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+    </Reference>
+    <Reference Include="UnityEngine.SharedInternalsModule">
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+    </Reference>
+    <Reference Include="UnityEngine.SpriteMaskModule">
+    </Reference>
+    <Reference Include="UnityEngine.SpriteShapeModule">
+    </Reference>
+    <Reference Include="UnityEngine.StreamingModule">
+    </Reference>
+    <Reference Include="UnityEngine.StyleSheetsModule">
+    </Reference>
+    <Reference Include="UnityEngine.SubstanceModule">
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule">
+    </Reference>
+    <Reference Include="UnityEngine.TerrainPhysicsModule">
+    </Reference>
+    <Reference Include="UnityEngine.TextCoreModule">
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+    </Reference>
+    <Reference Include="UnityEngine.TilemapModule">
+    </Reference>
+    <Reference Include="UnityEngine.Timeline">
+    </Reference>
+    <Reference Include="UnityEngine.TimelineModule">
+    </Reference>
+    <Reference Include="UnityEngine.TLSModule">
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsModule">
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+    </Reference>
+    <Reference Include="UnityEngine.UmbraModule">
+    </Reference>
+    <Reference Include="UnityEngine.UNETModule">
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsModule">
+    </Reference>
+    <Reference Include="UnityEngine.UnityConnectModule">
+    </Reference>
+    <Reference Include="UnityEngine.UnityTestProtocolModule">
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+    </Reference>
+    <Reference Include="UnityEngine.VehiclesModule">
+    </Reference>
+    <Reference Include="UnityEngine.VFXModule">
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+    </Reference>
+    <Reference Include="UnityEngine.VRModule">
+    </Reference>
+    <Reference Include="UnityEngine.WindModule">
+    </Reference>
+    <Reference Include="UnityEngine.XRModule">
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\AssemblyInfo.cs" />
+    <Compile Include="src\RTABestTimes.cs" />
+    <Compile Include="src\RTATimer.cs" />
+    <Compile Include="src\RTATimerMod.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
